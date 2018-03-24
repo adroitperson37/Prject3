@@ -1,10 +1,9 @@
 pragma solidity ^0.4.17;
 
-import "./Ownable.sol";
+import "./Stoppable.sol";
 
-contract RockPaperScissor is Ownable {
+contract RockPaperScissor is Stoppable {
     
-
     struct Player {
         address playerAddress;
         bytes32 bet;
@@ -21,13 +20,13 @@ contract RockPaperScissor is Ownable {
 
     event LogCreatePlayer(address from, uint amountSent);
     event LogBidPlace(address from, bytes32 bidValue);
-    event LogWinnerNotification(address winner,uint amountWon);
+    event LogWinnerNotification(address winner, uint amountWon);
     
 
 
 //Function to create player .it only allows to create two players and restricts already registered player.
 
-    function createPlayer() public payable{
+    function createPlayer() public isRunning payable {
         require(msg.sender!=owner);
         require(playerBets[msg.sender].playerAddress == address(0));
         require(numberOfPlayers<2);
@@ -38,11 +37,11 @@ contract RockPaperScissor is Ownable {
         playerBets[msg.sender] = player;
         numberOfPlayers++;
         players[numberOfPlayers] = msg.sender;
-        LogCreatePlayer(msg.sender,msg.value);
+        LogCreatePlayer(msg.sender, msg.value);
     }
 
 //Used to play bids. It verifies that the address from which bid comes in already exisits or not.
-    function placeBid(bytes32 bidValue) public returns(bool success){
+    function placeBid(bytes32 bidValue) public isRunning returns(bool success) {
         require(playerBets[msg.sender].playerAddress == msg.sender);
         require(bidValue!=bytes32(0));
         require(checkIfbidValueExists(bidValue));
@@ -56,37 +55,32 @@ contract RockPaperScissor is Ownable {
 
 //Once both players are registered. The owner can start the play and decide the winner.
 
-    function play() public onlyOwner {
+    function play() public onlyOwner isRunning {
       
         bytes32 player1Bet = playerBets[players[1]].bet;
         bytes32 player2Bet = playerBets[players[2]].bet;
 
-        if(player1Bet == ROCK){
-            if(player2Bet == PAPER) {
+        if (player1Bet == ROCK) {
+            if (player2Bet == PAPER) {
                 winningPlayer = playerBets[players[2]];
                 winningPlayer.betAmount += playerBets[players[1]].betAmount;
-            }
-            else if(player2Bet == SCISSORS) {
+            }else if (player2Bet == SCISSORS) {
                 winningPlayer = playerBets[players[1]];
                 winningPlayer.betAmount += playerBets[players[2]].betAmount;
             }
-        }
-        else if(player1Bet == PAPER) {
-            if(player2Bet == ROCK) {
+        }else if (player1Bet == PAPER) {
+            if (player2Bet == ROCK) {
                 winningPlayer = playerBets[players[1]];
                 winningPlayer.betAmount += playerBets[players[2]].betAmount;
-            }
-            else if(player2Bet == SCISSORS) {
+            }else if (player2Bet == SCISSORS) {
                 winningPlayer = playerBets[players[2]];
                 winningPlayer.betAmount += playerBets[players[1]].betAmount;
             }
-        }
-        else if(player1Bet == SCISSORS) {
-            if(player2Bet == ROCK) {
+        }else if (player1Bet == SCISSORS) {
+            if (player2Bet == ROCK) {
                 winningPlayer = playerBets[players[2]];
                 winningPlayer.betAmount += playerBets[players[1]].betAmount;
-            }
-            else if(player2Bet == PAPER) {
+            }else if (player2Bet == PAPER) {
                 winningPlayer = playerBets[players[1]];
                 winningPlayer.betAmount += playerBets[players[2]].betAmount;
             }
@@ -95,7 +89,7 @@ contract RockPaperScissor is Ownable {
     }
 
 //Owner can withdraw the funds once he is notified as winner.
-    function winnerWithdraw() public {
+    function winnerWithdraw() public isRunning {
         require(winningPlayer.playerAddress == msg.sender);
         require(winningPlayer.betAmount>0);
 
@@ -108,10 +102,9 @@ contract RockPaperScissor is Ownable {
     function checkIfbidValueExists(bytes32 bidValue) private pure returns(bool exists) {
 
          //tried somthings like
-        if(bidValue == ROCK || bidValue == PAPER || bidValue == SCISSORS){
+        if (bidValue == ROCK || bidValue == PAPER || bidValue == SCISSORS) {
             return true;
-        }
-        else{
+        }else {
             return false;
         }
     }
