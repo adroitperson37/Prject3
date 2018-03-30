@@ -84,14 +84,14 @@
     "absolutePath": "/Users/rviparla/Ethereum/Prject3/contracts/Stoppable.sol",
     "exportedSymbols": {
       "Stoppable": [
-        514
+        571
       ]
     },
-    "id": 515,
+    "id": 572,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 474,
+        "id": 531,
         "literals": [
           "solidity",
           "^",
@@ -104,9 +104,9 @@
       {
         "absolutePath": "/Users/rviparla/Ethereum/Prject3/contracts/Ownable.sol",
         "file": "./Ownable.sol",
-        "id": 475,
+        "id": 532,
         "nodeType": "ImportDirective",
-        "scope": 515,
+        "scope": 572,
         "sourceUnit": 41,
         "src": "27:23:2",
         "symbolAliases": [],
@@ -118,7 +118,7 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 476,
+              "id": 533,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 40,
@@ -128,7 +128,7 @@
                 "typeString": "contract Ownable"
               }
             },
-            "id": 477,
+            "id": 534,
             "nodeType": "InheritanceSpecifier",
             "src": "134:7:2"
           }
@@ -139,9 +139,9 @@
         "contractKind": "contract",
         "documentation": "The contractName contract does this and that...",
         "fullyImplemented": true,
-        "id": 514,
+        "id": 571,
         "linearizedBaseContracts": [
-          514,
+          571,
           40
         ],
         "name": "Stoppable",
@@ -149,10 +149,10 @@
         "nodes": [
           {
             "constant": false,
-            "id": 479,
+            "id": 536,
             "name": "isOn",
             "nodeType": "VariableDeclaration",
-            "scope": 514,
+            "scope": 571,
             "src": "149:16:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -161,7 +161,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 478,
+              "id": 535,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "149:4:2",
@@ -175,25 +175,25 @@
           },
           {
             "body": {
-              "id": 486,
+              "id": 543,
               "nodeType": "Block",
               "src": "201:28:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 484,
+                    "id": 541,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 482,
+                      "id": 539,
                       "name": "isOn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 479,
+                      "referencedDeclaration": 536,
                       "src": "211:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -205,7 +205,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 483,
+                      "id": 540,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -226,13 +226,13 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 485,
+                  "id": 542,
                   "nodeType": "ExpressionStatement",
                   "src": "211:11:2"
                 }
               ]
             },
-            "id": 487,
+            "id": 544,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -240,19 +240,19 @@
             "name": "Stoppable",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 480,
+              "id": 537,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "191:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 481,
+              "id": 538,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "201:0:2"
             },
-            "scope": 514,
+            "scope": 571,
             "src": "172:57:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -260,25 +260,25 @@
           },
           {
             "body": {
-              "id": 502,
+              "id": 559,
               "nodeType": "Block",
               "src": "306:47:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 498,
+                    "id": 555,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 496,
+                      "id": 553,
                       "name": "isOn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 479,
+                      "referencedDeclaration": 536,
                       "src": "316:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -289,11 +289,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 497,
+                      "id": 554,
                       "name": "on",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 489,
+                      "referencedDeclaration": 546,
                       "src": "323:2:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -306,7 +306,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 499,
+                  "id": 556,
                   "nodeType": "ExpressionStatement",
                   "src": "316:9:2"
                 },
@@ -314,7 +314,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 500,
+                    "id": 557,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -329,24 +329,24 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 495,
-                  "id": 501,
+                  "functionReturnParameters": 552,
+                  "id": 558,
                   "nodeType": "Return",
                   "src": "335:11:2"
                 }
               ]
             },
-            "id": 503,
+            "id": 560,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 492,
+                "id": 549,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 491,
+                  "id": 548,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -364,15 +364,15 @@
             "name": "startOrStop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 490,
+              "id": 547,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 489,
+                  "id": 546,
                   "name": "on",
                   "nodeType": "VariableDeclaration",
-                  "scope": 503,
+                  "scope": 560,
                   "src": "257:7:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -381,7 +381,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 488,
+                    "id": 545,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "257:4:2",
@@ -398,15 +398,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 495,
+              "id": 552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 494,
+                  "id": 551,
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 503,
+                  "scope": 560,
                   "src": "292:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -415,7 +415,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 493,
+                    "id": 550,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "292:4:2",
@@ -430,7 +430,7 @@
               ],
               "src": "291:14:2"
             },
-            "scope": 514,
+            "scope": 571,
             "src": "235:118:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -438,7 +438,7 @@
           },
           {
             "body": {
-              "id": 512,
+              "id": 569,
               "nodeType": "Block",
               "src": "380:49:2",
               "statements": [
@@ -452,18 +452,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 508,
+                        "id": 565,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 506,
+                          "id": 563,
                           "name": "isOn",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 479,
+                          "referencedDeclaration": 536,
                           "src": "398:4:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -475,7 +475,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 507,
+                          "id": 564,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -504,18 +504,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 505,
+                      "id": 562,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 529,
+                      "referencedDeclaration": 586,
                       "src": "390:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 509,
+                    "id": 566,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -529,22 +529,22 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 510,
+                  "id": 567,
                   "nodeType": "ExpressionStatement",
                   "src": "390:21:2"
                 },
                 {
-                  "id": 511,
+                  "id": 568,
                   "nodeType": "PlaceholderStatement",
                   "src": "421:1:2"
                 }
               ]
             },
-            "id": 513,
+            "id": 570,
             "name": "isRunning",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 504,
+              "id": 561,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "377:2:2"
@@ -553,7 +553,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 515,
+        "scope": 572,
         "src": "112:320:2"
       }
     ],
@@ -563,14 +563,14 @@
     "absolutePath": "/Users/rviparla/Ethereum/Prject3/contracts/Stoppable.sol",
     "exportedSymbols": {
       "Stoppable": [
-        514
+        571
       ]
     },
-    "id": 515,
+    "id": 572,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 474,
+        "id": 531,
         "literals": [
           "solidity",
           "^",
@@ -583,9 +583,9 @@
       {
         "absolutePath": "/Users/rviparla/Ethereum/Prject3/contracts/Ownable.sol",
         "file": "./Ownable.sol",
-        "id": 475,
+        "id": 532,
         "nodeType": "ImportDirective",
-        "scope": 515,
+        "scope": 572,
         "sourceUnit": 41,
         "src": "27:23:2",
         "symbolAliases": [],
@@ -597,7 +597,7 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 476,
+              "id": 533,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 40,
@@ -607,7 +607,7 @@
                 "typeString": "contract Ownable"
               }
             },
-            "id": 477,
+            "id": 534,
             "nodeType": "InheritanceSpecifier",
             "src": "134:7:2"
           }
@@ -618,9 +618,9 @@
         "contractKind": "contract",
         "documentation": "The contractName contract does this and that...",
         "fullyImplemented": true,
-        "id": 514,
+        "id": 571,
         "linearizedBaseContracts": [
-          514,
+          571,
           40
         ],
         "name": "Stoppable",
@@ -628,10 +628,10 @@
         "nodes": [
           {
             "constant": false,
-            "id": 479,
+            "id": 536,
             "name": "isOn",
             "nodeType": "VariableDeclaration",
-            "scope": 514,
+            "scope": 571,
             "src": "149:16:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -640,7 +640,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 478,
+              "id": 535,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "149:4:2",
@@ -654,25 +654,25 @@
           },
           {
             "body": {
-              "id": 486,
+              "id": 543,
               "nodeType": "Block",
               "src": "201:28:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 484,
+                    "id": 541,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 482,
+                      "id": 539,
                       "name": "isOn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 479,
+                      "referencedDeclaration": 536,
                       "src": "211:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -684,7 +684,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 483,
+                      "id": 540,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -705,13 +705,13 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 485,
+                  "id": 542,
                   "nodeType": "ExpressionStatement",
                   "src": "211:11:2"
                 }
               ]
             },
-            "id": 487,
+            "id": 544,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -719,19 +719,19 @@
             "name": "Stoppable",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 480,
+              "id": 537,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "191:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 481,
+              "id": 538,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "201:0:2"
             },
-            "scope": 514,
+            "scope": 571,
             "src": "172:57:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -739,25 +739,25 @@
           },
           {
             "body": {
-              "id": 502,
+              "id": 559,
               "nodeType": "Block",
               "src": "306:47:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 498,
+                    "id": 555,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 496,
+                      "id": 553,
                       "name": "isOn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 479,
+                      "referencedDeclaration": 536,
                       "src": "316:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -768,11 +768,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 497,
+                      "id": 554,
                       "name": "on",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 489,
+                      "referencedDeclaration": 546,
                       "src": "323:2:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -785,7 +785,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 499,
+                  "id": 556,
                   "nodeType": "ExpressionStatement",
                   "src": "316:9:2"
                 },
@@ -793,7 +793,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 500,
+                    "id": 557,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -808,24 +808,24 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 495,
-                  "id": 501,
+                  "functionReturnParameters": 552,
+                  "id": 558,
                   "nodeType": "Return",
                   "src": "335:11:2"
                 }
               ]
             },
-            "id": 503,
+            "id": 560,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": [],
-                "id": 492,
+                "id": 549,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 491,
+                  "id": 548,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -843,15 +843,15 @@
             "name": "startOrStop",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 490,
+              "id": 547,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 489,
+                  "id": 546,
                   "name": "on",
                   "nodeType": "VariableDeclaration",
-                  "scope": 503,
+                  "scope": 560,
                   "src": "257:7:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -860,7 +860,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 488,
+                    "id": 545,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "257:4:2",
@@ -877,15 +877,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 495,
+              "id": 552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 494,
+                  "id": 551,
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 503,
+                  "scope": 560,
                   "src": "292:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -894,7 +894,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 493,
+                    "id": 550,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "292:4:2",
@@ -909,7 +909,7 @@
               ],
               "src": "291:14:2"
             },
-            "scope": 514,
+            "scope": 571,
             "src": "235:118:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -917,7 +917,7 @@
           },
           {
             "body": {
-              "id": 512,
+              "id": 569,
               "nodeType": "Block",
               "src": "380:49:2",
               "statements": [
@@ -931,18 +931,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 508,
+                        "id": 565,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 506,
+                          "id": 563,
                           "name": "isOn",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 479,
+                          "referencedDeclaration": 536,
                           "src": "398:4:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -954,7 +954,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 507,
+                          "id": 564,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -983,18 +983,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 505,
+                      "id": 562,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 529,
+                      "referencedDeclaration": 586,
                       "src": "390:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 509,
+                    "id": 566,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1008,22 +1008,22 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 510,
+                  "id": 567,
                   "nodeType": "ExpressionStatement",
                   "src": "390:21:2"
                 },
                 {
-                  "id": 511,
+                  "id": 568,
                   "nodeType": "PlaceholderStatement",
                   "src": "421:1:2"
                 }
               ]
             },
-            "id": 513,
+            "id": 570,
             "name": "isRunning",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 504,
+              "id": 561,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "377:2:2"
@@ -1032,7 +1032,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 515,
+        "scope": 572,
         "src": "112:320:2"
       }
     ],
@@ -1044,5 +1044,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-03-23T23:10:17.549Z"
+  "updatedAt": "2018-03-30T05:51:44.434Z"
 }

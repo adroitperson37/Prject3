@@ -6,59 +6,69 @@ contract RockPaperScissor is Stoppable {
     
     struct Player {
         address playerAddress;
-        bytes32 bet;
+        bytes8 bet;
         uint betAmount;
+        bytes32 hashValue;
+        bool isCommitted;      
     }
 
-    bytes32  public constant ROCK = "ROCK";
-    bytes32  public constant PAPER = "PAPER";
-    bytes32  public constant SCISSORS = "SCISSORS";
+    bytes8  public constant ROCK = "ROCK";
+    bytes8  public constant PAPER = "PAPER";
+    bytes8  public constant SCISSORS = "SCISSORS";
     uint public numberOfPlayers;
     Player public winningPlayer;
     mapping(address => Player) public playerBets;
     mapping(uint => address) public players;
 
-    event LogCreatePlayer(address from, uint amountSent);
-    event LogBidPlace(address from, bytes32 bidValue);
+    event LogCreatePlayer(address from, uint amountSent, bytes32 committedHash);
+    event LogBidPlace(address from, bytes8 bidValue, bytes32 committedHash);
     event LogWinnerNotification(address winner, uint amountWon);
     
 
 
 //Function to create player .it only allows to create two players and restricts already registered player.
 
-    function createPlayer() public isRunning payable {
-        require(msg.sender!=owner);
+    function createPlayer(bytes32 committedHash) public isRunning payable {
+        require(msg.sender != owner);
         require(playerBets[msg.sender].playerAddress == address(0));
-        require(numberOfPlayers<2);
+        require(numberOfPlayers < 2);
 
         Player memory player;
         player.playerAddress = msg.sender;
         player.betAmount = msg.value;
+        player.hashValue = committedHash;
         playerBets[msg.sender] = player;
         numberOfPlayers++;
         players[numberOfPlayers] = msg.sender;
-        LogCreatePlayer(msg.sender, msg.value);
+        LogCreatePlayer(msg.sender, msg.value, committedHash);
     }
 
 //Used to play bids. It verifies that the address from which bid comes in already exisits or not.
-    function placeBid(bytes32 bidValue) public isRunning returns(bool success) {
+    function placeBid(bytes8 bidValue, bytes32 committedHash) public isRunning returns(bool success) {
+        require(numberOfPlayers == 2);
         require(playerBets[msg.sender].playerAddress == msg.sender);
-        require(bidValue!=bytes32(0));
+        require(playerBets[msg.sender].hashValue == committedHash);
+        require(bidValue != bytes8(0));
         require(checkIfbidValueExists(bidValue));
-        
-    
         playerBets[msg.sender].bet = bidValue;
-        LogBidPlace(msg.sender,bidValue);
+        LogBidPlace(msg.sender, bidValue, committedHash);
         return true;
 
     }
 
+// //Get HashValue 
+    function getHash(bytes32 bidValue, bytes32 uniqueValue) public pure returns(bytes32 hash) {
+        return keccak256(bidValue, uniqueValue);
+    }
+
+
 //Once both players are registered. The owner can start the play and decide the winner.
 
     function play() public onlyOwner isRunning {
-      
-        bytes32 player1Bet = playerBets[players[1]].bet;
-        bytes32 player2Bet = playerBets[players[2]].bet;
+        require(numberOfPlayers == 2);
+
+        bytes8 player1Bet = playerBets[players[1]].bet;
+        bytes8 player2Bet = playerBets[players[2]].bet;
 
         if (player1Bet == ROCK) {
             if (player2Bet == PAPER) {
@@ -95,7 +105,7 @@ contract RockPaperScissor is Stoppable {
 
         uint amount = winningPlayer.betAmount;
         winningPlayer.betAmount = 0;
-        LogWinnerNotification(msg.sender,amount);
+        LogWinnerNotification(msg.sender, amount);
         msg.sender.transfer(amount);
     }
 

@@ -10,6 +10,8 @@ contract('RockPaperScissor',function(accounts){
     var playerTwo = accounts[2];
     var playerOneBet ="ROCK";
     var playerTwoBet="PAPER";
+    var player1Hash;
+    var player2Hash;
 
 
 
@@ -24,11 +26,23 @@ contract('RockPaperScissor',function(accounts){
          });
         
     it('Checks the entire Transactions', () => {
-          return instance.createPlayer({from:playerOne,value:10}).then(
+            return instance.getHash(playerOneBet,"1234567").then(
+                hashObj => {
+                    console.log("First Hash:"+hashObj);
+                    player1Hash = hashObj;
+                    return instance.getHash(playerTwoBet,"234567");
+            }
+            ).then(
+                hashObj => {
+                    console.log("Second Hash:"+hashObj);
+                    player2Hash = hashObj;
+                    return instance.createPlayer(player1Hash,{from:playerOne,value:10});
+                      }
+              ).then(
             transactionObject => {
                 assert.strictEqual(playerOne,transactionObject.logs[0].args.from);
                 assert.strictEqual(10,transactionObject.logs[0].args.amountSent.toNumber());
-                return instance.createPlayer({from:playerTwo,value:20});
+                return instance.createPlayer(player2Hash,{from:playerTwo,value:20});
                   }
           ).then(
             transactionObject => {
@@ -39,13 +53,13 @@ contract('RockPaperScissor',function(accounts){
           ).then(
               valueObject => {
                 assert.strictEqual(2,valueObject.toNumber());
-                return instance.placeBid(playerOneBet,{from:playerOne});
+                return instance.placeBid(playerOneBet,player1Hash,{from:playerOne});
               }
           ).then(
             transactionObject => {
                 assert.strictEqual(playerOne,transactionObject.logs[0].args.from);
                 assert.strictEqual(playerOneBet,web3.toUtf8(transactionObject.logs[0].args.bidValue));
-                return instance.placeBid(playerTwoBet,{from:playerTwo});
+                return instance.placeBid(playerTwoBet,player2Hash,{from:playerTwo});
             }              
           ).then(
             transactionObject => {
