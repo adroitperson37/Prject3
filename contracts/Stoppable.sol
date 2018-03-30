@@ -10,6 +10,7 @@ import "./Ownable.sol";
 contract Stoppable is Ownable {
 
     bool public isOn;
+    event LogStartOrStop(address indexed sender, bool indexed startOrStop);
 
     function Stoppable () public {
         isOn = true;
@@ -17,6 +18,7 @@ contract Stoppable is Ownable {
 
     function startOrStop (bool on)  public onlyOwner returns(bool success) {
         isOn = on;
+        LogStartOrStop(msg.sender, on);
         return true;
     }
 

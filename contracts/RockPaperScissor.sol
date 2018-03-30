@@ -3,7 +3,8 @@ pragma solidity ^0.4.17;
 import "./Stoppable.sol";
 
 contract RockPaperScissor is Stoppable {
-    
+
+
     struct Player {
         address playerAddress;
         bytes8 bet;
@@ -19,13 +20,24 @@ contract RockPaperScissor is Stoppable {
     Player public winningPlayer;
     mapping(address => Player) public playerBets;
     mapping(uint => address) public players;
+    address public gameOwner;
 
     event LogCreatePlayer(address from, uint amountSent, bytes32 committedHash);
     event LogBidPlace(address from, bytes8 bidValue, bytes32 committedHash);
     event LogWinnerNotification(address winner, uint amountWon);
+
+
+    modifier onlyGameOwner() {
+        require(msg.sender == gameOwner);
+        _;
+    }
+
     
+    function RockPaperScissor(uint noOfPlayers, address gameCreator) public {
+        gameOwner = gameCreator;
+        numberOfPlayers = noOfPlayers;
 
-
+    }
 //Function to create player .it only allows to create two players and restricts already registered player.
 
     function createPlayer(bytes32 committedHash) public isRunning payable {
@@ -64,7 +76,7 @@ contract RockPaperScissor is Stoppable {
 
 //Once both players are registered. The owner can start the play and decide the winner.
 
-    function play() public onlyOwner isRunning {
+    function play() public onlyGameOwner isRunning {
         require(numberOfPlayers == 2);
 
         bytes8 player1Bet = playerBets[players[1]].bet;
